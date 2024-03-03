@@ -31,9 +31,15 @@ namespace Laboratorio_4
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buscar = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.bienvenidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.haciaDelanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refrescarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -54,24 +60,67 @@ namespace Laboratorio_4
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(3, 54);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(877, 497);
-            this.webBrowser1.TabIndex = 3;
-            // 
             // webView21
             // 
             this.webView21.AllowExternalDrop = true;
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(3, 54);
+            this.webView21.Location = new System.Drawing.Point(12, 54);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(857, 497);
+            this.webView21.Size = new System.Drawing.Size(870, 497);
+            this.webView21.Source = new System.Uri("https://www.bing.com", System.UriKind.Absolute);
             this.webView21.TabIndex = 4;
             this.webView21.ZoomFactor = 1D;
+            this.webView21.Click += new System.EventHandler(this.webView21_Click_1);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bienvenidoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(882, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // bienvenidoToolStripMenuItem
+            // 
+            this.bienvenidoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inicioToolStripMenuItem,
+            this.regresarToolStripMenuItem,
+            this.haciaDelanteToolStripMenuItem,
+            this.refrescarToolStripMenuItem});
+            this.bienvenidoToolStripMenuItem.Name = "bienvenidoToolStripMenuItem";
+            this.bienvenidoToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.bienvenidoToolStripMenuItem.Text = "Bienvenido";
+            this.bienvenidoToolStripMenuItem.Click += new System.EventHandler(this.bienvenidoToolStripMenuItem_Click);
+            // 
+            // inicioToolStripMenuItem
+            // 
+            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inicioToolStripMenuItem.Text = "Inicio";
+            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click_1);
+            // 
+            // regresarToolStripMenuItem
+            // 
+            this.regresarToolStripMenuItem.Name = "regresarToolStripMenuItem";
+            this.regresarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regresarToolStripMenuItem.Text = "Regresar";
+            this.regresarToolStripMenuItem.Click += new System.EventHandler(this.regresarToolStripMenuItem_Click);
+            // 
+            // haciaDelanteToolStripMenuItem
+            // 
+            this.haciaDelanteToolStripMenuItem.Name = "haciaDelanteToolStripMenuItem";
+            this.haciaDelanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.haciaDelanteToolStripMenuItem.Text = "Hacia delante";
+            this.haciaDelanteToolStripMenuItem.Click += new System.EventHandler(this.haciaDelanteToolStripMenuItem_Click);
+            // 
+            // refrescarToolStripMenuItem
+            // 
+            this.refrescarToolStripMenuItem.Name = "refrescarToolStripMenuItem";
+            this.refrescarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refrescarToolStripMenuItem.Text = "Refrescar";
             // 
             // Form1
             // 
@@ -79,22 +128,30 @@ namespace Laboratorio_4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 550);
             this.Controls.Add(this.webView21);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Navegador Web";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button buscar;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem bienvenidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regresarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem haciaDelanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refrescarToolStripMenuItem;
     }
 }
 

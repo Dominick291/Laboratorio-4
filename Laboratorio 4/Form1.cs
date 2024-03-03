@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace Laboratorio_4
 {
     public partial class Form1 : Form
@@ -19,6 +20,25 @@ namespace Laboratorio_4
             InitializeComponent();
             this.Resize += new System.EventHandler(this.Form_Resize);
 
+        }
+        private void Form_Resize(object sender, EventArgs e)
+        {
+            webView21.Size = this.ClientSize - new System.Drawing.Size(webView21.Location);
+            buscar.Left = this.ClientSize.Width - buscar.Width;
+            comboBox1.Width = buscar.Left - comboBox1.Left;
+        }
+
+        private void Grabar(string Filename)
+        {
+            FileStream stream = new FileStream(Filename, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(stream);
+            foreach (var url in urls2)
+            {
+                writer.WriteLine(url.Pagina);
+                writer.WriteLine(url.Veces);
+                writer.WriteLine(url.Fecha);
+            }
+            writer.Close();
         }
 
         private void buscar_Click(object sender, EventArgs e)
@@ -63,50 +83,16 @@ namespace Laboratorio_4
             }
         }
 
-        private void Form_Resize(object sender, EventArgs e)
-        {
-            webView21.Size = this.ClientSize - new System.Drawing.Size(webView21.Location);
-            buscar.Left = this.ClientSize.Width - buscar.Width;
-            comboBox1.Width = buscar.Left - comboBox1.Left;
-        }
-
+    
 
          
-        private void Grabar(string Filename)
-        {
-            //utilizar a veces append o open.or.create
-            FileStream stream = new FileStream(Filename, FileMode.OpenOrCreate, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(stream);
-            foreach (var url in urls2)
-            {
-                writer.WriteLine(url.Pagina);
-                writer.WriteLine(url.Veces);
-                writer.WriteLine(url.Fecha);
-            }
-            writer.Close();
-        }
+
  
-
-        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.CoreWebView2.Navigate("https://www.bing.com");
-
-        }
-
-        private void haciaAtrasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.CoreWebView2.GoBack();
-        }
-
-        private void haciaAdelanteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            webView21.CoreWebView2.GoForward();
-        }
 
         private void leer()
         {
             string fileName = "historial.txt";
-            FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
             while (reader.Peek() > -1)
@@ -132,9 +118,30 @@ namespace Laboratorio_4
             leer();
         }
 
-        private void webView21_Click(object sender, EventArgs e)
+
+        private void webView21_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void bienvenidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inicioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            webView21.CoreWebView2.Navigate("https://www.bing.com");
+        }
+
+        private void regresarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webView21.CoreWebView2.GoBack();
+        }
+
+        private void haciaDelanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webView21.CoreWebView2.GoForward();
         }
     }
 }
